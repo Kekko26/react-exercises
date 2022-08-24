@@ -1,11 +1,13 @@
 import React from "react";
 import { Helloworld } from "./Helloworld";
 
-class App extends React.Component{
+export class App extends React.Component{
     render(){
+        return(
         <div>
-            <h1>React app title test</h1>
+            <h1>React app title</h1>
             <Helloworld />
         </div>
+        )
     }
 }
