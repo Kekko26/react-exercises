@@ -6,9 +6,7 @@ export class Counter extends React.Component{
         counter: this.props.initialValue
     }
 
-    constructor(props){
-        super(props)
-        
+    componentDidMount(){
         setInterval(() => {
             this.setState((state)=>{
                    return this.state.counter + this.props.increment > (this.props.initialValue*10)
@@ -16,20 +14,12 @@ export class Counter extends React.Component{
                     : {counter: state.counter + this.props.increment}
                     
             })
-
-            // METODO ALTERNATIVO PIU LEGGIBILE MA PROLISSO, PERCHE SE METTO DUE RETURN NEL METODO PRECEDENTE MI DA ERRORE E INVECE CON IF ELSE POSSO?
-            // this.setState((state)=>{
-            //     if(this.state.counter+this.props.increment > this.props.initialValue*10){
-            //         return state.counter = this.props.initialValue
-            //     }
-            //     else{
-            //         return state.counter = state.counter+this.props.increment
-            //     }   
-            //  })
-
-
         }, this.props.interval);
     }
+
+    //IL CONSTRUCTOR NON SERVE PIU' PERCHE NON MI SERVE ELABORARE NULLA PRIMA CHE VENGA RENDERIZZATO A SCHERMO, POSSO FARLO DOPO IL 
+    //MOUNTING QUINDI POSSO TOGLIERE IL CONSTRUCTOR
+
     render(){
         return <CounterDisplay counter={this.state.counter}/>
     }
