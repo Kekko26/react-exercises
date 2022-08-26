@@ -6,19 +6,26 @@ export class Counter extends React.Component{
         counter: this.props.initialValue
     }
 
+
+    render(){
+        return <CounterDisplay counter={this.state.counter}/>
+    }
+
     componentDidMount(){
         this._interval = setInterval(() => { //PERCHE DEVO CHIAMARLA CON L'UNDERSCORE LA VARIABILE _INTERVAL?
             this.setState((state)=>{
-                   return this.state.counter + this.props.increment > (this.props.initialValue*10)
-                    ? {counter: this.props.initialValue}
-                    : {counter: state.counter + this.props.increment}
+                   return {counter: state.counter + this.props.increment}
                     
             })
         }, this.props.interval);
     }
 
-    render(){
-        return <CounterDisplay counter={this.state.counter}/>
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.counter > this.props.initialValue*10){
+            this.setState((state)=>{
+               return {counter: this.props.initialValue}
+            })
+        }
     }
 
     componentWillUnmount(){
