@@ -7,7 +7,7 @@ export class Counter extends React.Component{
     }
 
     componentDidMount(){
-        setInterval(() => {
+        this._interval = setInterval(() => { //PERCHE DEVO CHIAMARLA CON L'UNDERSCORE LA VARIABILE _INTERVAL?
             this.setState((state)=>{
                    return this.state.counter + this.props.increment > (this.props.initialValue*10)
                     ? {counter: this.props.initialValue}
@@ -17,11 +17,14 @@ export class Counter extends React.Component{
         }, this.props.interval);
     }
 
-    //IL CONSTRUCTOR NON SERVE PIU' PERCHE NON MI SERVE ELABORARE NULLA PRIMA CHE VENGA RENDERIZZATO A SCHERMO, POSSO FARLO DOPO IL 
-    //MOUNTING QUINDI POSSO TOGLIERE IL CONSTRUCTOR
-
     render(){
         return <CounterDisplay counter={this.state.counter}/>
+    }
+
+    componentWillUnmount(){
+        if(this._interval){
+            clearInterval(this._interval);
+        }
     }
 }
 
