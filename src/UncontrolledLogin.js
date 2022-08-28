@@ -16,7 +16,7 @@ export class UncontrolledLogin extends React.Component{
     componentDidMount(){        
         document.querySelector('#loginButton2').setAttribute("disabled", 'true')
     }
-    
+
     loginCheck = ()=>{
         this._reference.current.username.value === '' ||  this._reference.current.password.value === '' ? document.querySelector('#loginButton2').setAttribute("disabled", 'true') : document.querySelector('#loginButton2').removeAttribute('disabled')
     }
@@ -30,7 +30,7 @@ export class UncontrolledLogin extends React.Component{
 
             <form ref={this._reference} onSubmit={this.submitHandler} onChange={this.loginCheck}>
                 <h3>Login:</h3>
-                <input name = 'username'/> <br/>
+                <input name = 'username' autoFocus/> <br/>
                 <input name = 'password' type='password'/> <br/>
                 <input name = 'remember' type='checkbox' /> <br/>
                 <button type = 'submit' id='loginButton2'>Login</button>
