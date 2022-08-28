@@ -8,6 +8,15 @@ import { Login } from "./Login";
 import { Welcome } from "./Welcome";
 
 export class App extends React.Component{
+
+    onLogin = (username, password, remember)=>{
+        console.log({
+            username,
+            password,
+            remember
+        });
+    }
+
     render(){
         return(
         <div>
@@ -18,7 +27,7 @@ export class App extends React.Component{
             <ClickCounter />
             <ClickTracker />
             <InteractiveWelcome />
-            <Login />
+            <Login onLogin = {this.onLogin}/>
         </div>
         )
     }
