@@ -6,6 +6,7 @@ import { Counter } from "./Counter";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
+import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 
@@ -40,6 +41,7 @@ export class App extends React.Component{
             <Login onLogin = {this.onLogin}/>
             <UncontrolledLogin />
             <Colors colorsArray={colorsArray} />
+            <TodoList />
         </div>
         )
     }
