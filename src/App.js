@@ -9,7 +9,13 @@ import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 
-const colorsArray = ['red', 'blue', 'yellow', 'black']
+const colorsArray = [
+    {id: 1, name: 'red'},
+    {id: 2, name: 'blue'},
+    {id: 3, name: 'yellow'},
+    {id: 4, name: 'black'}
+
+]
 
 export class App extends React.Component{
 
