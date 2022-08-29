@@ -1,12 +1,15 @@
 import React from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
+import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
+
+const colorsArray = ['red', 'blue', 'yellow', 'black']
 
 export class App extends React.Component{
 
@@ -30,6 +33,7 @@ export class App extends React.Component{
             <InteractiveWelcome />
             <Login onLogin = {this.onLogin}/>
             <UncontrolledLogin />
+            <Colors colorsArray={colorsArray} />
         </div>
         )
     }
