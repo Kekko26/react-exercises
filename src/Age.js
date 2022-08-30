@@ -6,7 +6,7 @@ export class Age extends React.Component{
         return(
             <div>
             {this.props.age>=18
-            ? <Age age={this.props.age}/>
+            ? <p>Your age is {this.props.age}</p>
             : <p>You are very young!</p>
             }
             </div>
