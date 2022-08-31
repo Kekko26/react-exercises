@@ -19,12 +19,24 @@ export class TodoList extends React.Component{
         this.state.items.push(this.state.input)
         console.log(this.state.items);
         this.setState(()=>{
-            return {newArray: this.state.items.map((item, index)=><li key={item+index}>{item}</li>)}
+            return {newArray: this.state.items.map((item, index)=><li key={item+index}>{item}<button id={item+index} onClick={this.removeItemEvent}>Remove item</button></li>)}
         }
         )
         this.setState(()=>{
             return {input:''}
         })
+    }
+
+    removeItemEvent =  async(e)=>{
+        e.preventDefault()
+        this.setState({
+        items: this.state.items.filter( (item, index) => item+index!==e.target.id),
+        },
+        () => {
+            this.setState({newArray: this.state.items.map((item, index)=><li key={item+index}>{item}<button id={item+index} onClick={this.removeItemEvent}>Remove item</button></li>)
+            })
+        }
+        )
     }
 
     resetListEvent = (e)=>{
