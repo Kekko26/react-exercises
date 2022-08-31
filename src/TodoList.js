@@ -27,12 +27,20 @@ export class TodoList extends React.Component{
         })
     }
 
+    resetListEvent = (e)=>{
+        this.setState(()=>{
+            e.preventDefault()
+            return {items: [], newArray:[]}
+        }
+        )
+    }
+
     render(){
         return (
         <div>
             <input value={this.state.input} onChange={this.inputChange}/>
             <button onClick={this.addToListEvent}>Add to list</button>
-
+            <button onClick={this.resetListEvent}>Reset the list</button>
             <ul>
             {this.state.newArray}
             </ul>
