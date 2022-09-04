@@ -32,13 +32,18 @@ export class Login extends React.Component{
     }
 
     render(){
+        const Mystyle = {
+            backgroundColor: this.state.password.length<8 ? 'red' : 'green',
+            color: 'yellow',
+            fontWeight: 'bold',
+        }
         return(
             <div>
                 <h3>Login:</h3>
                 <input name="username" value={this.state.username} onChange={this.loginEventHandler}/> <br/>
                 <input name="password" type="password" value={this.state.password} onChange={this.loginEventHandler}/> <br/>
                 <input name="remember" type="checkbox" checked={this.state.remember} onChange={this.loginEventHandler}/> <br/>
-                <button type="button" id="loginButton" onClick={this.buttonEventHandler}>Login</button>
+                <button style={Mystyle} type="button" id="loginButton" onClick={this.buttonEventHandler}>Login</button>
                 <button type='reset' onClick={this.resetEventHandler}>Reset</button>
             </div>
         )
