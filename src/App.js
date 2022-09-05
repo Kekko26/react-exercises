@@ -2,6 +2,7 @@ import React from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
 import { Colors } from "./Colors";
+import { Container } from "./Container";
 import { Counter } from "./Counter";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
@@ -30,7 +31,7 @@ export class App extends React.Component{
 
     render(){
         return(
-        <div>
+        <Container>
             <h1>React app title</h1>
             <Helloworld />
             <Welcome age={17} name="John"/>
@@ -42,7 +43,7 @@ export class App extends React.Component{
             <UncontrolledLogin />
             <Colors colorsArray={colorsArray} />
             <TodoList />
-        </div>
+        </Container>
         )
     }
 }
