@@ -4,8 +4,10 @@ import { ClickTracker } from "./ClickTracker";
 import { Colors } from "./Colors";
 import { Container } from "./Container";
 import { Counter } from "./Counter";
+import { DisplayLanguage } from "./DisplayLanguage";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
+import { Contesto } from './LanguageContext'
 import { Login } from "./Login";
 import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
@@ -20,6 +22,16 @@ const colorsArray = [
 ]
 
 export class App extends React.Component{
+    
+    state = {
+        language: 'en'
+    }
+
+    OnLanguageChange = (event) =>{
+        this.setState({
+            language: event.target.value
+        })
+    }
 
     onLogin = (username, password, remember)=>{
         console.log({
@@ -32,6 +44,7 @@ export class App extends React.Component{
     render(){
         return(
         <Container title="React container prop title" >
+
             <h1>React app title</h1>
             <Helloworld />
             <Welcome age={17} name="John"/>
@@ -51,6 +64,17 @@ export class App extends React.Component{
                 </ul>
                 )}}
             </TodoList>
+
+            <Contesto.Provider value={this.state.language}>
+                <div className="border-1 border-solid border-yellow-500 bg-yellow-200 p-10">
+                    <select value={this.state.language} onChange={this.OnLanguageChange}>
+                        <option value={'en'}>English</option>
+                        <option value={'it'}>Italiano</option>
+                    </select>
+                    <DisplayLanguage/>
+                </div>
+                
+            </Contesto.Provider>
 
         </Container>
         )
