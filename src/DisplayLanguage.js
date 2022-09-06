@@ -12,7 +12,7 @@ export class DisplayLanguage extends React.Component{
         return(
         <Contesto.Consumer>
             {(language)=>{
-           return <p>{strings[language]}</p>
+           return <h1>{strings[language]}</h1>
             }}
         </Contesto.Consumer>
         )
