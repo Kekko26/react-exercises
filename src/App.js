@@ -9,6 +9,7 @@ import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Contesto } from './LanguageContext'
 import { Login } from "./Login";
+import { Sum } from "./Sum";
 import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
@@ -73,8 +74,9 @@ export class App extends React.Component{
                     </select>
                     <DisplayLanguage/>
                 </div>
-                
             </Contesto.Provider>
+
+            <Sum numbers={[3,2,5,6,10]}/>
 
         </Container>
         )
