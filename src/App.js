@@ -76,7 +76,7 @@ export class App extends React.Component{
                 </div>
             </Contesto.Provider>
 
-            <Sum numbers={[3,2,5,6,10]}/>
+            <Sum/>
 
         </Container>
         )
