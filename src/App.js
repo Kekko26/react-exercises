@@ -42,6 +42,10 @@ export class App extends React.Component{
         });
     }
 
+    onCounterChange = (counter)=>{
+        console.log(`The counter is: ${counter}`);
+    }
+
     render(){
         return(
         <Container title="React container prop title" >
@@ -50,7 +54,7 @@ export class App extends React.Component{
             <Helloworld />
             <Welcome age={17} name="John"/>
             <Counter initialValue={10} increment={5} interval={500}/>
-            <ClickCounter />
+            <ClickCounter onCounterChange={this.onCounterChange}/>
             <ClickTracker />
             <InteractiveWelcome />
             <Login onLogin = {this.onLogin}/>

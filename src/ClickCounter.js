@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CounterButton } from "./CounterButton";
 
-export function ClickCounter(){
+export function ClickCounter(props){
 
     const [count, setCounter] = useState(0)
 
@@ -10,6 +10,10 @@ export function ClickCounter(){
             return state + 1
         })
     }
+
+    useEffect(()=>{
+        props.onCounterChange(count);
+    }, [count, props])
 
     return(
         <div>
