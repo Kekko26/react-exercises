@@ -34,7 +34,7 @@ export class App extends React.Component{
         })
     }
 
-    onLogin = (username, password, remember)=>{
+    onLogin = ({username, password, remember})=>{
         console.log({
             username,
             password,
