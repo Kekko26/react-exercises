@@ -6,6 +6,7 @@ import { Container } from "./Container";
 import { Counter } from "./Counter";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { GitHubUser } from "./GitHubUser";
+import { GitHubUsersList } from "./GitHubUsersList";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Contesto } from './LanguageContext'
@@ -87,7 +88,8 @@ export function App(){
             <Sum/>
 
             <GitHubUser username={'Kekko26'} />
-
+            
+            <GitHubUsersList />
         </Container>
         )
 }
