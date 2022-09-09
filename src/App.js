@@ -5,6 +5,7 @@ import { Colors } from "./Colors";
 import { Container } from "./Container";
 import { Counter } from "./Counter";
 import { DisplayLanguage } from "./DisplayLanguage";
+import { GitHubUser } from "./GitHubUser";
 import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Contesto } from './LanguageContext'
@@ -84,6 +85,8 @@ export function App(){
             </Contesto.Provider>
 
             <Sum/>
+
+            <GitHubUser username={'Kekko26'} />
 
         </Container>
         )
