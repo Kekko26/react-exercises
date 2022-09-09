@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
 import { Colors } from "./Colors";
@@ -22,19 +22,17 @@ const colorsArray = [
 
 ]
 
-export class App extends React.Component{
+export function App(){
     
-    state = {
-        language: 'en'
-    }
+    const [language, setLanguage] = useState('en')
 
-    OnLanguageChange = (event) =>{
-        this.setState({
-            language: event.target.value
+    function OnLanguageChange(event){
+        setLanguage((prev)=>{
+            prev = event.target.value
         })
     }
 
-    onLogin = ({username, password, remember})=>{
+    function onLogin({username, password, remember}){
         console.log({
             username,
             password,
@@ -42,22 +40,27 @@ export class App extends React.Component{
         });
     }
 
-    onCounterChange = (counter)=>{
+    function onCounterChange(counter){
         console.log(`The counter is: ${counter}`);
     }
 
-    render(){
+    const [unmounter, setUnmounter] = useState(true)
+     function exp(ev){
+       setUnmounter((prev)=> !prev)
+    }
+
         return(
         <Container title="React container prop title" >
 
             <h1>React app title</h1>
             <Helloworld />
             <Welcome age={17} name="John"/>
-            <Counter initialValue={10} increment={5} interval={500}/>
-            <ClickCounter onCounterChange={this.onCounterChange}/>
+            <button onClick={exp}>toggle</button>
+            {unmounter && <Counter initialValue={5} increment={5} interval={1000}/>}
+            <ClickCounter onCounterChange={onCounterChange}/>
             <ClickTracker />
             <InteractiveWelcome />
-            <Login onLogin = {this.onLogin}/>
+            <Login onLogin = {onLogin}/>
             <UncontrolledLogin />
             <Colors colorsArray={colorsArray} />
 
@@ -70,9 +73,9 @@ export class App extends React.Component{
                 )}}
             </TodoList>
 
-            <Contesto.Provider value={this.state.language}>
+            <Contesto.Provider value={language}>
                 <div className="border-1 border-solid border-yellow-500 bg-yellow-200 p-10">
-                    <select value={this.state.language} onChange={this.OnLanguageChange}>
+                    <select value={language} onChange={OnLanguageChange}>
                         <option value={'en'}>English</option>
                         <option value={'it'}>Italiano</option>
                     </select>
@@ -84,5 +87,4 @@ export class App extends React.Component{
 
         </Container>
         )
-    }
 }
