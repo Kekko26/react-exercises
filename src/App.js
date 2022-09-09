@@ -12,6 +12,7 @@ import { Helloworld } from "./Helloworld";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Contesto } from './LanguageContext'
 import { Login } from "./Login";
+import { LoginWithCustomHook } from "./LoginWithCustomHook";
 import { Sum } from "./Sum";
 import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
@@ -91,6 +92,8 @@ export function App(){
             <GitHubUsersList />
 
             <CounterWithCustomHook />
+
+            <LoginWithCustomHook />
         </Container>
         )
 }
