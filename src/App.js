@@ -4,6 +4,7 @@ import { ClickTracker } from "./ClickTracker";
 import { Colors } from "./Colors";
 import { Container } from "./Container";
 import { Counter } from "./Counter";
+import { CounterWithCustomHook } from "./CounterWithCustomHook";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { GitHubUser } from "./GitHubUser";
 import { GitHubUsersList } from "./GitHubUsersList";
@@ -29,9 +30,7 @@ export function App(){
     const [language, setLanguage] = useState('en')
 
     function OnLanguageChange(event){
-        setLanguage((prev)=>{
-            prev = event.target.value
-        })
+        setLanguage(event.target.value)
     }
 
     function onLogin({username, password, remember}){
@@ -90,6 +89,8 @@ export function App(){
             <GitHubUser username={'Kekko26'} />
             
             <GitHubUsersList />
+
+            <CounterWithCustomHook />
         </Container>
         )
 }
