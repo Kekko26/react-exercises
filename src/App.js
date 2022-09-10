@@ -5,6 +5,7 @@ import { Colors } from "./Colors";
 import { Container } from "./Container";
 import { Counter } from "./Counter";
 import { CounterWithCustomHook } from "./CounterWithCustomHook";
+import { CurrentLocation } from "./CurrentLocation";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { GitHubUser } from "./GitHubUser";
 import { GitHubUsersList } from "./GitHubUsersList";
@@ -94,6 +95,8 @@ export function App(){
             <CounterWithCustomHook />
 
             <LoginWithCustomHook />
+
+            <CurrentLocation />
         </Container>
         )
 }
