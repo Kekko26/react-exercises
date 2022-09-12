@@ -3,19 +3,21 @@ import { useState } from "react"
 export function useCounter(){
     const [count, setCounter] = useState(0)
 
-    function incrementHandler(){
+    const incrementHandler = useCallback(function incrementHandler(){
         setCounter(state => {
             return state + 1
         })
-    }
-    function decrementHandler(){
+    }, [])
+
+    const decrementHandler = useCallback(function decrementHandler(){
         setCounter(state => {
             return state - 1
         })
-    }
-    function resetHandler(){
+    },[])
+
+    const resetHandler = useCallback(function resetHandler(){
         setCounter(0)
-    }
+    },[])
 
     
     return{
