@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CarDetails } from "./CarDetails";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
 import { Colors } from "./Colors";
@@ -26,6 +27,12 @@ const colorsArray = [
     {id: 4, name: 'black'}
 
 ]
+
+const initialData = {
+    model: 'ferrari',
+    year: 2020,
+    color: 'red'
+}
 
 export function App(){
     
@@ -97,6 +104,8 @@ export function App(){
             <LoginWithCustomHook />
 
             <CurrentLocation />
+            
+            <CarDetails initialData={initialData}/>
         </Container>
         )
 }
