@@ -30,7 +30,7 @@ export class UncontrolledLogin extends React.Component{
 
             <form ref={this._reference} onSubmit={this.submitHandler} onChange={this.loginCheck}>
                 <h3>Login:</h3>
-                <input name = 'username' autoFocus/> <br/>
+                <input name = 'username' /> <br/>
                 <input name = 'password' type='password'/> <br/>
                 <input name = 'remember' type='checkbox' /> <br/>
                 <button type = 'submit' id='loginButton2'>Login</button>

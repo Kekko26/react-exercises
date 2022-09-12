@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export function Login(props){
 
     const [form, setForm] = useState({username: '', password: '', remember: false})
+
+    const inputReference = useRef(null)
+
+    useEffect(()=>{inputReference.current.focus()}, [])
 
      function inputEvemtHandler(event){    
         setForm(prev => {
@@ -27,7 +31,7 @@ export function Login(props){
 
     return (
         <form>
-            <input name="username" onChange={inputEvemtHandler} value={form.username}/> 
+            <input ref={inputReference} name="username" onChange={inputEvemtHandler} value={form.username}/> 
             <input name="password" onChange={inputEvemtHandler} value={form.password} type='password' />
             <input name="remember" onChange={inputEvemtHandler} checked={form.remember} type='checkbox'/>  
             {!form.username || !form.password 
