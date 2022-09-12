@@ -8,6 +8,7 @@ import { Counter } from "./Counter";
 import { CounterWithCustomHook } from "./CounterWithCustomHook";
 import { CurrentLocation } from "./CurrentLocation";
 import { DisplayLanguage } from "./DisplayLanguage";
+import { FilteredList } from "./FilteredList";
 import { GitHubUser } from "./GitHubUser";
 import { GitHubUsersList } from "./GitHubUsersList";
 import { Helloworld } from "./Helloworld";
@@ -34,6 +35,33 @@ const initialData = {
     color: 'red'
 }
 
+const peopleList = [
+    {
+    name:'joe',
+    age:20,
+    id:1,
+    },
+    {
+    name:'kas',
+    age: 16,
+    id:2,
+    },
+    {
+    name:'pipe',
+    age: 15,
+    id: 3,
+    },
+    {
+    name:'bod',
+    age:21,
+    id:4,
+    },
+    {
+    name: 'nic',
+    age: 19,
+    id: 5,
+    }
+]
 export function App(){
     
     const [language, setLanguage] = useState('en')
@@ -106,6 +134,8 @@ export function App(){
             <CurrentLocation />
             
             <CarDetails initialData={initialData}/>
+
+            <FilteredList peopleList={peopleList}/>
         </Container>
         )
 }
