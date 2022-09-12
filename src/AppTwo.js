@@ -14,6 +14,7 @@ export function AppTwo(){
             <Route path="/" element={<Welcome name={'Pio'}/>}/>
             <Route path="counter" element={<Counter/>}/>
             <Route path="/users/:username" element={<ShowGitHubUser/>}/>
+            <Route path="*" element={<h3>Page not found</h3>}/>
         </Routes>
         </div>
        
