@@ -10,7 +10,7 @@ export function AppTwo(){
     return(
         <div>
             <h3>Navigate to:</h3>
-            <p><Link to={"/"}>Home</Link> | <Link to={"counter"}>Counter</Link> | <Link to={"/users/kekko26"}>My Github</Link></p>
+            <p><Link to={"/"}>Home</Link> | <Link to={"counter"}>Counter</Link> | <Link to={"/users"}>Github profiles</Link></p>
 
         <Routes>
             <Route path="/" element={<Welcome name={'Pio'}/>}/>
@@ -19,6 +19,7 @@ export function AppTwo(){
             <Route path="*" element={<h3>Page not found</h3>}/>
             <Route path="/users" element={<GitHubUsersList/>} >
                 <Route path=":username" element={<ShowGitHubUser/>}/>
+                <Route index element={<p>Please add an user and select it</p>}/>
             </Route>
         </Routes>
 
