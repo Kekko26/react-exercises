@@ -3,15 +3,17 @@ import { useGitHubUser } from "./useGitHubUser";
 
 export function GitHubUser({username}){
 
-    const {data, error, loading, fetchData} = useGitHubUser()
+    const {data, error, loading} = useGitHubUser(username)
 
-    function handleFetch(){
-        fetchData(username)
-    }
+
+    // function handleFetch(){
+    //     fetchData(username)
+
+    // }
 
     return(
         <div className=" border-1 border-white-300 border-solid m-5 p-5">
-            <button onClick={handleFetch}>Fetch user data</button>
+            {/* <button onClick={handleFetch}>Fetch user data</button> */}
 
             {loading && <div>Loading..</div>}
             
