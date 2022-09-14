@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { CounterDisplay } from "./CounterDisplay";
 
 
-export function Counter({initialValue = 0, increment = 10, interval = 3000}){
+export function Counter({initialValue = 10, increment = 10, interval = 1000}){
 
     const [counter, setCounter] = useState(initialValue)
 
     useEffect(()=>{
         const _interval = setInterval(() => {
-            setCounter((prev)=>prev===initialValue*10 ? prev = initialValue : prev+increment)
+            setCounter((prev)=>prev>=initialValue*10 ? prev = initialValue : prev+increment)
         }, interval)
 
         return()=>{clearInterval(_interval)}
